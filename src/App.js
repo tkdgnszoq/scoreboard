@@ -29,7 +29,21 @@ class App extends React.Component {
     })
   }
 
-  render(){
+  //스코어 증가, 감소 콜백 함수
+  handleChangeScore = (id, delta) => {
+    console.log(id, delta);
+    this.setState(prevState => {
+      const player = prevState.players.find(item => item.id === id);
+      player.score += delta;
+
+      return {
+        players: [...prevState.players]
+      }
+    })
+  }
+
+
+    render(){
     return (
       <div className="scoreboard">
         <Header title="My Scoreboard" totalPlayers={11}/>
@@ -39,6 +53,7 @@ class App extends React.Component {
                                                    id={player.id}
                                                    score={player.score}
                                                    removePlayer={this.handleRemovePlayer}
+                                                    changeScore={this.handleChangeScore}
                                                    name={player.name}/>)
         }
 
