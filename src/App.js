@@ -46,7 +46,7 @@ class App extends React.Component {
     render(){
     return (
       <div className="scoreboard">
-        <Header title="My Scoreboard" totalPlayers={11}/>
+        <Header title="My Scoreboard" players={this.state.players}/>
         {
           //props.initialPlayers.map(player => <Player key={player.id} name={player.name}/>)
           this.state.players.map(player => <Player key={player.id}
