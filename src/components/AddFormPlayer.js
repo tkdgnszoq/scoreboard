@@ -22,7 +22,7 @@ export class AddFormPlayer extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <input type="text" value={this.state.value} onChange={this.handelValueChange}
-               placeholder="enter a player's name"></input>
+               placeholder="enter a player's name" required></input>
         <input type="submit" value="Add Player"></input>
 
       </form>
