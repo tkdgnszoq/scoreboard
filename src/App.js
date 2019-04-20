@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {Header} from "./components/Header";
 import {Player} from "./components/Player";
+import {AddFormPlayer} from "./components/AddFormPlayer";
 
 
 class App extends React.Component {
@@ -56,7 +57,7 @@ class App extends React.Component {
                                                     changeScore={this.handleChangeScore}
                                                    name={player.name}/>)
         }
-
+        <AddFormPlayer/>
       </div>
     );
   }
