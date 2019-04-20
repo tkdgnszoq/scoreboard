@@ -4,7 +4,8 @@ export class Stopwatch extends React.Component {
   tickRef;
 
   state = {
-    isRunning : false
+    isRunning : false,
+    timer: 0
   }
   constructor(props) {
     super(props);
@@ -17,21 +18,33 @@ export class Stopwatch extends React.Component {
 
   }
 
+  handleReset = () => {
+    this.setState({
+      timer: 0
+    })
+  }
+
+  tick = () =>{
+    if(this.state.isRunning){
+      this.setState(prevState => ({
+        timer: prevState.timer + 1
+      }))
+    }
+  }
+
   render() {
     return (
       <div className="stopwatch">
         <h2>Stopwatch</h2>
-        <span className="stopwatch-time">0</span>
+        <span className="stopwatch-time">{this.state.timer}</span>
         <button onClick={this.handleStopwatch}>{this.state.isRunning ? "Stop" : "Start"}</button>
-        <button>Reset</button>
+        <button onClick={this.handleReset}>Reset</button>
       </div>
 
     );
   }
 
-  tick(){
 
-  }
   // Dom이 렌더링 된 직후 : 네트워크 호출, 3rd 라이브러리 코딩
   componentDidMount() {
     this.tickRef = setInterval(this.tick, 1000);
