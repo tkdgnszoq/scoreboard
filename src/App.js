@@ -6,6 +6,9 @@ import {AddFormPlayer} from "./components/AddFormPlayer";
 
 
 class App extends React.Component {
+
+  maxId = 4;
+
   state = {
     players:[
       {name: 'LDK', score:0, id:1},
@@ -43,6 +46,12 @@ class App extends React.Component {
     })
   }
 
+  handleAddPlayer = (name) => {
+    console.log(name);
+    this.setState(prevState => ({
+      players: [...prevState.players, {id: ++this.maxId + 1, score:0, name: name}]
+    }))
+  }
 
     render(){
     return (
@@ -57,7 +66,7 @@ class App extends React.Component {
                                                     changeScore={this.handleChangeScore}
                                                    name={player.name}/>)
         }
-        <AddFormPlayer/>
+        <AddFormPlayer addPlayer={this.handleAddPlayer}/>
       </div>
     );
   }
