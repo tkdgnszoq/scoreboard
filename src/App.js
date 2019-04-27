@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from "./components/Header";
 import {Player} from "./components/Player";
-import {AddFormPlayer} from "./components/AddFormPlayer";
+import AddFormPlayer from "./components/AddFormPlayer";
 import {connect} from "react-redux";
 
 
@@ -30,13 +30,6 @@ class App extends React.Component {
     })
   }
 
-  handleAddPlayer = (name) => {
-    console.log(name);
-    this.setState(prevState => ({
-      players: [...prevState.players, {id: ++this.maxId + 1, score:0, name: name}]
-    }))
-  }
-
     render(){
     return (
       <div className="scoreboard">
@@ -50,7 +43,7 @@ class App extends React.Component {
                                                     changeScore={this.handleChangeScore}
                                                    name={player.name}/>)
         }
-        <AddFormPlayer addPlayer={this.handleAddPlayer}/>
+        <AddFormPlayer/>
       </div>
     );
   }

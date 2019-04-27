@@ -1,6 +1,8 @@
 import React from 'react';
+import {addPlayer} from "../redux/actions";
+import {connect} from "react-redux";
 
-export class AddFormPlayer extends React.Component {
+class AddFormPlayer extends React.Component {
   /*state = {
     value:''
   }*/
@@ -33,3 +35,7 @@ export class AddFormPlayer extends React.Component {
     );
   }
 }
+
+//액션을 디스패치하는 펑션을 만들어야 한다.
+//일단 action create를 만들어야한다.
+export default connect(null, {addPlayer})(AddFormPlayer);
