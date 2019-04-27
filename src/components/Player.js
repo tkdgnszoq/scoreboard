@@ -1,10 +1,12 @@
 import React from 'react';
 import Counter from "./Counter";
+import {connect} from "react-redux";
+import {removePlayer} from "../redux/actions";
 
 export class Player extends React.Component{
 
   render() {
-    const {removePlayer, name, score, id, changeScore} = this.props;
+    const {removePlayer, name, score, id} = this.props;
     console.log('rendered', this.props);
     return (
       <div className="player">
@@ -29,3 +31,6 @@ export class Player extends React.Component{
     return (this.props.score !== nextProps.score)?true:false;
   }
 }
+
+//Todo: removePlayer를 redux로 변경
+//export default connect(null, {removePlayer})(Counter);
