@@ -1,5 +1,7 @@
+import {UPDATE_TITLE} from "../actionTypes";
+
 const playerInitialState = {
-  title: 'My Scoreboard',
+  title: 'Redux Scoreboard',
   players:[
     {name: 'LDK', score:0, id:1},
     {name: 'HONG', score:0, id:2},
@@ -9,5 +11,13 @@ const playerInitialState = {
 }
 
 export const playerReducer = (state = playerInitialState, action) => {
-  return state;
+  switch (action.type) {
+    case UPDATE_TITLE:
+      return {
+        ...state, title: action.title
+      };
+
+    default:
+      return state;
+  }
 }
