@@ -1,4 +1,4 @@
-import {ADD_PLAYER, UPDATE_TITLE} from "../actionTypes";
+import {ADD_PLAYER, CHANGE_SCORE, UPDATE_TITLE} from "../actionTypes";
 
 let maxId = 4;
 const playerInitialState = {
@@ -22,6 +22,21 @@ export const playerReducer = (state = playerInitialState, action) => {
       return {
         ...state,
         players: [...state.players, {name: action.name, score:0, id: ++maxId}]
+      };
+    case CHANGE_SCORE:
+      const player = state.players.find((item)=>(item.id == action.index));
+      player.score += action.delta;
+
+      /*state.players.forEach(item =>{
+        if(item.id === action.index) {
+          item.score += action.delta;
+        }
+      })*/
+
+      return {
+        ...state,
+        players: [...state.players]
+
       };
 
     default:

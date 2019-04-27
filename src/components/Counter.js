@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from "react-redux";
+import {changeScore} from "../redux/actions";
 
-export class Counter extends React.Component {
+class Counter extends React.Component {
   static propTypes = { //static이 붙으면 class변수
     changeScore : PropTypes.func,
     id : PropTypes.number,
@@ -23,9 +25,6 @@ export class Counter extends React.Component {
   }
 }
 
-/*
-Counter.propTypes = {
-  changeScore : PropTypes.func,
-  id : PropTypes.number,
-  score : PropTypes.number
-}*/
+//액션을 디스패치하는 props로
+
+export default connect(null, {changeScore})(Counter);

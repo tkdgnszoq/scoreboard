@@ -1,5 +1,5 @@
 import React from 'react';
-import {Counter} from "./Counter";
+import Counter from "./Counter";
 
 export class Player extends React.Component{
 
@@ -14,7 +14,7 @@ export class Player extends React.Component{
         <span className="player-name">
       {name}
     </span>
-        <Counter score={score} id={id} changeScore={changeScore}/>
+        <Counter score={score} id={id} />
       </div>
     );
   }

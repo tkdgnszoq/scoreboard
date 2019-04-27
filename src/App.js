@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import {Player} from "./components/Player";
 import AddFormPlayer from "./components/AddFormPlayer";
 import {connect} from "react-redux";
+import {addPlayer, changeScore} from "./redux/actions";
 
 
 class App extends React.Component {
@@ -18,7 +19,7 @@ class App extends React.Component {
   }
 
   //스코어 증가, 감소 콜백 함수
-  handleChangeScore = (id, delta) => {
+  /*handleChangeScore = (id, delta) => {
     console.log(id, delta);
     this.setState(prevState => {
       const player = prevState.players.find(item => item.id === id);
@@ -28,8 +29,7 @@ class App extends React.Component {
         players: [...prevState.players]
       }
     })
-  }
-
+  }*/
     render(){
     return (
       <div className="scoreboard">
@@ -40,7 +40,7 @@ class App extends React.Component {
                                                    id={player.id}
                                                    score={player.score}
                                                    removePlayer={this.handleRemovePlayer}
-                                                    changeScore={this.handleChangeScore}
+                                                    //changeScore={this.handleChangeScore}
                                                    name={player.name}/>)
         }
         <AddFormPlayer/>
@@ -52,5 +52,6 @@ class App extends React.Component {
 const mapStateToProps = (state) =>({
   players: state.playerReducer.players
 });
+
 
 export default connect(mapStateToProps)(App);
