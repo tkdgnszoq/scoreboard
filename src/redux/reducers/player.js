@@ -1,4 +1,4 @@
-import {ADD_PLAYER, CHANGE_SCORE, UPDATE_TITLE} from "../actionTypes";
+import {ADD_PLAYER, CHANGE_SCORE, REMOVE_PLAYER, UPDATE_TITLE} from "../actionTypes";
 import {removePlayer} from "../actions";
 
 let maxId = 4;
@@ -40,7 +40,9 @@ export const playerReducer = (state = playerInitialState, action) => {
 
       };
 
-    case removePlayer:
+    case REMOVE_PLAYER:
+
+      //players: prevState.players.filter(item => item.id !== id)
       return {
         ...state,
         players: state.players.filter((item) => (item.index != action.index))

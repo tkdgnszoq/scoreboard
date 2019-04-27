@@ -17,7 +17,7 @@ export const changeScore = (index, delta) => ({
   delta
 })
 
-export const removePlayer = (index) => ({
+export const removePlayer = (id) => ({
   type: REMOVE_PLAYER,
-  index
+  id
 })

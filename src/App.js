@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from "./components/Header";
-import {Player} from "./components/Player";
+import Player from "./components/Player";
 import AddFormPlayer from "./components/AddFormPlayer";
 import {connect} from "react-redux";
 
@@ -26,7 +26,7 @@ class App extends React.Component {
           this.props.players.map(player => <Player key={player.id}
                                                    id={player.id}
                                                    score={player.score}
-                                                   removePlayer={this.handleRemovePlayer}
+                                                   //removePlayer={this.handleRemovePlayer}
                                                     //changeScore={this.handleChangeScore}
                                                    name={player.name}/>)
         }

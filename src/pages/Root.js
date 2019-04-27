@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {Home} from "./Home";
 import {Scoreboard} from "./Scoreboard";
 import {Heroes} from "./Heroes";
+import {Menu} from "./Menu";
 
 export class Root extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ export class Root extends React.Component {
   render() {
     return (
       <BrowserRouter>
+        <Menu></Menu>
         <p>공통메뉴</p>
         <Switch>
           <Route path="/" exact component={Home}></Route>
