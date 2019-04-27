@@ -1,6 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export class Counter extends React.Component {
+  static propTypes = { //static이 붙으면 class변수
+    changeScore : PropTypes.func,
+    id : PropTypes.number,
+    score : PropTypes.number
+  }
+
   constructor(){
     super();
   }
@@ -15,3 +22,10 @@ export class Counter extends React.Component {
     );
   }
 }
+
+/*
+Counter.propTypes = {
+  changeScore : PropTypes.func,
+  id : PropTypes.number,
+  score : PropTypes.number
+}*/
