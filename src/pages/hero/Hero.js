@@ -47,12 +47,18 @@ export class Hero extends Component {
   }
 
   componentDidMount() {
-    this.getHero();
-  }
-
-  async getHero() {
     const hero_id = this.props.match.params.hero_id;
     console.log(hero_id);
+    this.getHero(hero_id);
+  }
+
+  componentWillReceiveProps(nextProps, nextContext) {
+    console.log('nextProps', nextProps);
+    this.getHero(nextProps.match.params.hero_id);
+  }
+
+  async getHero(hero_id) {
+
     const res  = await axios.get(`http://eastflag.co.kr:8080/api/hero/${hero_id}`)
     console.log(res.data);
 
