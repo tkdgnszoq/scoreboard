@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css'
+import 'rc-pagination/dist/rc-pagination.css';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import {store} from "./redux/store";
