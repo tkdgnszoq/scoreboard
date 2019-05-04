@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import Player from "../../components/Player";
 import AddFormPlayer from "../../components/AddFormPlayer";
 import Header from "../../components/Header";
-import './Scoreboard.css';
+import styles from './Scoreboard.module.css';
 class Scoreboard extends React.Component {
   maxId = 4;
 
@@ -11,7 +11,7 @@ class Scoreboard extends React.Component {
 
   render(){
     return (
-      <div className="scoreboard">
+      <div className={styles.scoreboard}>
         <Header players={this.props.players}/>
         {
           //props.initialPlayers.map(player => <Player key={player.id} name={player.name}/>)
