@@ -28,7 +28,7 @@ export class Menu extends React.Component {
   render() {
     return (
       <div>
-        <Navbar color="dark" dark expand="md" fixed>
+        <Navbar color="dark" dark expand="md">
           <NavLink className="navbar-brand" to="/">reactstrap</NavLink>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
