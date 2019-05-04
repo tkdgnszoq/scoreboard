@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {changeScore} from "../redux/actions";
+import styles from '../pages/scoreboard/Scoreboard.module.css';
+import classNames from 'classnames';
 
 class Counter extends React.Component {
   static propTypes = { //static이 붙으면 class변수
@@ -16,10 +18,10 @@ class Counter extends React.Component {
 
   render(){
     return(
-      <div className="counter">
-        <button className="counter-action decrement" onClick={()=> this.props.changeScore(this.props.id, -1)}>-</button>
-        <span className="counter-score">{this.props.score}</span>
-        <button className="counter-action increment" onClick={()=> this.props.changeScore(this.props.id, 1)}>+</button>
+      <div className={styles.counter}>
+        <button className={classNames(styles["counter-action"], styles.decrement)} onClick={()=> this.props.changeScore(this.props.id, -1)}>-</button>
+        <span className={styles["counter-score"]}>{this.props.score}</span>
+        <button className={classNames(styles["counter-action"], styles.increment)} onClick={()=> this.props.changeScore(this.props.id, 1)}>+</button>
       </div>
     );
   }
