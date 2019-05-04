@@ -3,6 +3,8 @@ import axios from 'axios';
 import Pagination from 'rc-pagination';
 
 import './Heroes.scss';
+import {Route, Switch} from "react-router-dom";
+import {Hero} from "../hero/Hero";
 
 
 export class Heroes extends React.Component {
@@ -23,26 +25,33 @@ export class Heroes extends React.Component {
     },()=> this.getHeroes());
   };
 
+  handleClick = (hero_id) =>{
+    //코드상에서 url이동하는 방법: this.props.history.push(url)
+    this.props.history.push(`/heroes/hero/${hero_id}`);
+  }
 
   render() {
     return (
       <Fragment>
+        <Switch>
+          <Route path="/heroes/hero/:hero_id" component={Hero}></Route>
+        </Switch>
 
-    <div className="row">
-      {this.state.heroes.map(hero => (
-        <div className="col-6 col-sm-4 col-md-3 p-1 p-sm-2 p-md-3" key={hero.hero_id}>
-          <div className="card">
-            <img src={hero.photo ? hero.photo : process.env.PUBLIC_URL + '/images/baseline-face-24px.svg'}
-                 style={{width: '100%'}} alt={hero.name}></img>
-            <div className="card-body">
-              <h5 className="card-title">{hero.name}</h5>
-              <p className="card-text">email: {hero.email}</p>
-              <p className="card-text">sex: {hero.sex}</p>
+        <div className="row">
+          {this.state.heroes.map(hero => (
+            <div className="col-6 col-sm-4 col-md-3 p-1 p-sm-2 p-md-3" key={hero.hero_id}>
+              <div className="card" onClick={()=> this.handleClick(hero.hero_id)}>
+                <img src={hero.photo ? hero.photo : process.env.PUBLIC_URL + '/images/baseline-face-24px.svg'}
+                     style={{width: '100%'}} alt={hero.name}></img>
+                <div className="card-body">
+                  <h5 className="card-title">{hero.name}</h5>
+                  <p className="card-text">email: {hero.email}</p>
+                  <p className="card-text">sex: {hero.sex}</p>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
-      ))}
-    </div>
         <Pagination onChange={this.pageChanged} pageSize={this.state.pageSize} current={this.state.currentPage} total={this.state.totalCount}/>
     </Fragment>
 

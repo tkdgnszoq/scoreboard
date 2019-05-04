@@ -6,9 +6,7 @@ export class Hero extends Component {
     super(props);
     this.state = {
       hero : null,
-
     }
-
   }
 
 
